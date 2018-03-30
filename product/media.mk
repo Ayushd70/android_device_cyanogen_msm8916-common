@@ -7,8 +7,9 @@ PRODUCT_COPY_FILES += \
 
 # Properties
 PRODUCT_PROPERTY_OVERRIDES += \
-    media.aac_51_output_enabled=true
-
+    media.aac_51_output_enabled=true \
+   persist.media.treble_omx=false
+  		  
 # WiFi Display
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.debug.wfd.enable=1
