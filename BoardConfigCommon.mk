@@ -130,16 +130,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
-#include device/qcom/sepolicy/legacy-sepolicy.mk
-BOARD_SEPOLICY_DIRS += \
-    $(PLATFORM_PATH)/sepolicy
-
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib64/libflp.so|libshims_flp.so \
-    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
-    /system/vendor/lib/libflp.so|libshims_flp.so \
-    /system/vendor/lib/libizat_core.so|libshims_get_process_name.so
+BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
 
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
