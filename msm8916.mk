@@ -17,7 +17,7 @@
 
 # Overlay
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
-PRODUCT_ENFORCE_RRO_TARGETS := framework-res
+#PRODUCT_ENFORCE_RRO_TARGETS := framework-res
 
 # ANT+
 PRODUCT_PACKAGES += \
@@ -174,8 +174,8 @@ PRODUCT_PACKAGES += \
     libxml2
 
 # Recovery
-PRODUCT_PACKAGES += \
-    librecovery_updater_cm
+#PRODUCT_PACKAGES += \
+   # librecovery_updater_cm
 
 # RenderScript HAL
 PRODUCT_PACKAGES += \
