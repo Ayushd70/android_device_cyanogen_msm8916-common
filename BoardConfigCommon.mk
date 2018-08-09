@@ -96,7 +96,60 @@ TARGET_RECOVERY_DEVICE_MODULES := libinit_msm8916
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.console=ttyHSL0 androidboot.hardware=qcom msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 androidboot.selinux=permissive
+BOARD_KERNEL_PAGESIZE := 2048
+BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
+BOARD_RAMDISK_OFFSET := 0x02000000
+
+TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
+
+# Manifest
+DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
+
+# Media
+TARGET_USES_MEDIA_EXTENSIONS := true
+
+# Power
+ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
+TARGET_POWERHAL_SET_INTERACTIVE_EXT := $(PLATFORM_PATH)/power/power_ext.c
+endif
+TARGET_POWERHAL_VARIANT := qcom
+
+# Properties
+TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/system.prop
+TARGET_SYSTEM_PROP += $(PLATFORM_PATH)/$(TARGET_BOARD_PLATFORM_VARIANT).prop
+
+# QCOM
+BOARD_USES_QCOM_HARDWARE := true
+
+# Radio
+MALLOC_SVELTE := true
+#TARGET_RIL_VARIANT := caf
+
+# Recovery
+#TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
+
+# SELinux
+#include device/qcom/sepolicy/sepolicy.mk
+#BOARD_SEPOLICY_DIRS += $(VENDOR_PATH)/sepolicy
+
+# Wi-Fi
+BOARD_HAS_QCOM_WLAN := true
+BOARD_HOSTAPD_DRIVER := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB := lib_driver_cmd_qcwcn
+BOARD_WLAN_DEVICE := qcwcn
+BOARD_WPA_SUPPLICANT_DRIVER := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_qcwcn
+
+PRODUCT_VENDOR_MOVE_ENABLED := true
+
+WIFI_DRIVER_FW_PATH_AP := "ap"
+WIFI_DRIVER_FW_PATH_STA := "sta"
+WPA_SUPPLICANT_VERSION := VER_0_8_X
+
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
