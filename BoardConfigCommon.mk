@@ -99,7 +99,7 @@ BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
 BOARD_RAMDISK_OFFSET := 0x02000000
 
-TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
+#TARGET_KERNEL_SOURCE := kernel/cyanogen/msm8916
 
 # Manifest
 DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
@@ -124,10 +124,10 @@ BOARD_USES_QCOM_HARDWARE := true
 
 # Radio
 MALLOC_SVELTE := true
-TARGET_RIL_VARIANT := caf
+#TARGET_RIL_VARIANT := caf
 
 # Recovery
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm
+#TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_cm
 
 # Releasetools
 TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
@@ -136,7 +136,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 # include device/qcom/sepolicy/sepolicy.mk
 # include device/qcom/sepolicy/legacy-sepolicy.mk
 # BOARD_SEPOLICY_DIRS += \
-    $(PLATFORM_PATH)/sepolicy
+   # $(PLATFORM_PATH)/sepolicy
 
 # Shims
 TARGET_LD_SHIM_LIBS := \
