@@ -40,6 +40,11 @@ on early-init
 on init
     symlink /sdcard /storage/sdcard0
 
+on init 
+    export LD_SHIM_LIBS  "/system/vendor/lib64/libflp.so|libshims_flp.so:/system/vendor/lib64/libizat_core.so|libshims_get_process_name.so:/system/vendor/lib/libflp.so|libshims_flp.so:/system/vendor/lib/libizat_core.so|libshims_get_process_name.so"
+
+
+
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice

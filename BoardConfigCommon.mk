@@ -55,7 +55,6 @@ AUDIO_FEATURE_ENABLED_MULTI_VOICE_SESSIONS := true
 AUDIO_FEATURE_ENABLED_NEW_SAMPLE_RATE := true
 BOARD_USES_ALSA_AUDIO := true
 USE_CUSTOM_AUDIO_POLICY := 1
-TARGET_QCOM_AUDIO_VARIANT := caf-msm8916
 
 # Bluetooth
 BOARD_HAVE_BLUETOOTH_QCOM := true
@@ -70,6 +69,7 @@ OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
 
 TARGET_CONTINUOUS_SPLASH_ENABLED := true
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+TARGET_USES_HWC2 := true
 TARGET_USES_ION := true
 TARGET_USES_NEW_ION_API := true
 USE_OPENGL_RENDERER := true
@@ -108,7 +108,6 @@ DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/manifest.xml
 
 # Media
 TARGET_USES_MEDIA_EXTENSIONS := true
-TARGET_QCOM_MEDIA_VARIANT := caf-msm8916
 
 # Power
 ifeq ($(TARGET_BOARD_PLATFORM_VARIANT),msm8939)
@@ -141,13 +140,6 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(PLATFORM_PATH)
 # BOARD_SEPOLICY_DIRS += \
    # $(PLATFORM_PATH)/sepolicy
 
-# Shims
-TARGET_LD_SHIM_LIBS := \
-    /system/vendor/lib64/libflp.so|libshims_flp.so \
-    /system/vendor/lib64/libizat_core.so|libshims_get_process_name.so \
-    /system/vendor/lib/libflp.so|libshims_flp.so \
-    /system/vendor/lib/libizat_core.so|libshims_get_process_name.so
-
 # Wi-Fi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HOSTAPD_DRIVER := NL80211
@@ -162,3 +154,4 @@ TARGET_USES_QCOM_WCNSS_QMI := true
 WIFI_DRIVER_FW_PATH_AP := "ap"
 WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
+
